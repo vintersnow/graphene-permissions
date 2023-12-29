@@ -5,7 +5,7 @@ from django.db.models import Model
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene import ResolveInfo
 from graphene_django import __version__
-from graphene_permissions.permissions import AllowAny
+from graphene_permissions2.permissions import AllowAny
 from packaging import version
 
 
