@@ -1,7 +1,7 @@
 import operator
 from typing import Any
 
-from graphene.type import GraphQLResolveInfo
+from graphql.type import GraphQLResolveInfo
 
 
 class BaseOperatorPerm:
@@ -44,7 +44,7 @@ class BaseSingleOperatorPerm(BaseOperatorPerm):
     def has_permission(self, info: GraphQLResolveInfo):
         return self.op_func(self.op1.has_permission(info))
 
-    def has_node_permission(self, info: GraphQlResolveInfo, id: str) -> bool:
+    def has_node_permission(self, info: GraphQLResolveInfo, id: str) -> bool:
         return self.op_func(self.op1.has_node_permission(info, id))
 
     def has_mutation_permission(
