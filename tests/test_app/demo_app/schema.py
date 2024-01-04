@@ -15,7 +15,7 @@ from graphene_permissions2.permissions import (
     AllowSuperuser,
     BasePermission,
 )
-from tests.test_app.demo_app.models import Pet
+from .models import Pet
 
 
 class SuperUserRequiredPetNode(AuthNode, DjangoObjectType):
