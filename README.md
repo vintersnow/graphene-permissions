@@ -1,5 +1,5 @@
 # Fork from [redzej/graphene-permissions](https://github.com/redzej/graphene-permissions)
-The original repository was outdated so fork and fix to run on the latest graphene(3.2)
+Forked from the original repository and modified to run on the latest graphene (3.2~)
 
 # graphene-permissions
 
