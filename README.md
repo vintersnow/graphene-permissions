@@ -1,3 +1,6 @@
+# Fork from [redzej/graphene-permissions](https://github.com/redzej/graphene-permissions)
+Forked from the original repository and modified to run on the latest graphene (3.2~)
+
 # graphene-permissions
 
 **Permission system for graphene-django apps.**

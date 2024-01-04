@@ -7,15 +7,15 @@ from graphene.relay import ClientIDMutation
 from graphene_django import DjangoObjectType
 from graphql_relay import from_global_id
 
-from graphene_permissions.mixins import AuthFilter, AuthMutation, AuthNode
-from graphene_permissions.permissions import (
+from graphene_permissions2.mixins import AuthFilter, AuthMutation, AuthNode
+from graphene_permissions2.permissions import (
     AllowAny,
     AllowAuthenticated,
     AllowStaff,
     AllowSuperuser,
     BasePermission,
 )
-from tests.test_app.demo_app.models import Pet
+from .models import Pet
 
 
 class SuperUserRequiredPetNode(AuthNode, DjangoObjectType):
@@ -25,6 +25,7 @@ class SuperUserRequiredPetNode(AuthNode, DjangoObjectType):
         model = Pet
         filter_fields = ("name",)
         interfaces = (relay.Node,)
+        fields = ("name", "race", "owner")
 
 
 class StaffRequiredPetNode(AuthNode, DjangoObjectType):
@@ -34,6 +35,7 @@ class StaffRequiredPetNode(AuthNode, DjangoObjectType):
         model = Pet
         filter_fields = ("name",)
         interfaces = (relay.Node,)
+        fields = ("name", "race", "owner")
 
 
 class AllowAuthenticatedPetNode(AuthNode, DjangoObjectType):
@@ -43,6 +45,7 @@ class AllowAuthenticatedPetNode(AuthNode, DjangoObjectType):
         model = Pet
         filter_fields = ("name",)
         interfaces = (relay.Node,)
+        fields = ("name", "race", "owner")
 
 
 class AllowAnyPetNode(AuthNode, DjangoObjectType):
@@ -52,6 +55,7 @@ class AllowAnyPetNode(AuthNode, DjangoObjectType):
         model = Pet
         filter_fields = ("name",)
         interfaces = (relay.Node,)
+        fields = ("name", "race", "owner")
 
 
 class SuperUserRequiredFilter(AuthFilter):
@@ -73,6 +77,7 @@ class AllowOrNotAllowPetNode(AuthNode, DjangoObjectType):
         model = Pet
         filter_fields = ("name",)
         interfaces = (relay.Node,)
+        fields = ("name", "race", "owner")
 
 
 class AllowAndNotAllowPetNode(AuthNode, DjangoObjectType):
@@ -82,6 +87,7 @@ class AllowAndNotAllowPetNode(AuthNode, DjangoObjectType):
         model = Pet
         filter_fields = ("name",)
         interfaces = (relay.Node,)
+        fields = ("name", "race", "owner")
 
 
 class AllowAndNotNotAllowPetNode(AuthNode, DjangoObjectType):
@@ -91,6 +97,7 @@ class AllowAndNotNotAllowPetNode(AuthNode, DjangoObjectType):
         model = Pet
         filter_fields = ("name",)
         interfaces = (relay.Node,)
+        fields = ("name", "race", "owner")
 
 
 class NotNotAllowPetNode(AuthNode, DjangoObjectType):
@@ -100,6 +107,7 @@ class NotNotAllowPetNode(AuthNode, DjangoObjectType):
         model = Pet
         filter_fields = ("name",)
         interfaces = (relay.Node,)
+        fields = ("name", "race", "owner")
 
 
 class PetsQuery:

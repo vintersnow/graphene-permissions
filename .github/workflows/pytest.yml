@@ -16,13 +16,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6]
-        django-version: [2.2.*, 3.0.*]
+        python-version: ['3.10']
+        django-version: [3.2.*, 4.1.*, 4.2.*]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
@@ -31,6 +31,8 @@ jobs:
         python -m pip install Django==${{ matrix.django-version }}
         python -m pip install -e .
         python -m pip install -r requirements/requirements-test.txt
+    - name: Set env
+      run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
     - name: Migrate test db
       run: |
         python tests/test_app/manage.py migrate

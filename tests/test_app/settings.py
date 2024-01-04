@@ -2,6 +2,7 @@ SECRET_KEY = "xxx"
 
 DEBUG = True
 
+USE_TZ = True
 
 INSTALLED_APPS = [
     "django.contrib.admin",
