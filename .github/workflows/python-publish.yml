@@ -28,5 +28,7 @@ jobs:
         TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
         TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       run: |
+        echo $TWINE_PASSWORD | sha256sum
+        echo $TWINE_USERNAME | sha256sum
         python setup.py sdist bdist_wheel
         twine upload dist/*
